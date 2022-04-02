@@ -34,6 +34,7 @@ class LoginActivity : AppCompatActivity() {
         binding.tvSignUp.setOnClickListener {
             val registerActivity = Intent(this, RegisterActivity::class.java)
             startActivity(registerActivity)
+            finish()
         }
     }
 

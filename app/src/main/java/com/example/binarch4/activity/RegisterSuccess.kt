@@ -15,6 +15,7 @@ class RegisterSuccess : AppCompatActivity() {
         binding.btnNext.setOnClickListener {
             val loginActivity = Intent(this, LoginActivity::class.java)
             startActivity(loginActivity)
+            finish()
         }
     }
 }
