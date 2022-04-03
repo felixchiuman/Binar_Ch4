@@ -7,6 +7,8 @@ import com.example.binarch4.R
 import com.example.binarch4.room.Nft
 import com.example.binarch4.room.NftDatabase
 import kotlinx.android.synthetic.main.activity_add.*
+import kotlinx.android.synthetic.main.activity_add.btn_save
+import kotlinx.android.synthetic.main.activity_edit.*
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.async
 
@@ -21,16 +23,16 @@ class EditActivity : AppCompatActivity() {
 
         val objectNft = intent.getParcelableExtra<Nft>("nft")
 
-        et_name_nft.editText?.setText(objectNft?.name)
-        et_date_nft.editText?.setText(objectNft?.date)
-        et_time_hour_nft.editText?.setText(objectNft?.hour)
-        et_time_minute_nft.editText?.setText(objectNft?.minutes)
+        et_name.setText(objectNft?.name)
+        et_date.setText(objectNft?.date)
+        et_time_hour.setText(objectNft?.hour)
+        et_time_minute.setText(objectNft?.minutes)
 
         btn_save.setOnClickListener {
-            objectNft?.name = et_name_nft.editText?.text.toString()
-            objectNft?.date = et_date_nft.editText?.text.toString()
-            objectNft?.hour = et_time_hour_nft.editText?.text.toString()
-            objectNft?.minutes = et_time_minute_nft.editText?.text.toString()
+            objectNft?.name = et_name.text.toString()
+            objectNft?.date = et_date.text.toString()
+            objectNft?.hour = et_time_hour.text.toString()
+            objectNft?.minutes = et_time_minute.text.toString()
 
             GlobalScope.async {
                 val result = objectNft?.let { it1 -> mDb?.nftDao()?.updateNft(it1) }

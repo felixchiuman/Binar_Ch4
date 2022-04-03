@@ -13,7 +13,6 @@
       android:layout_marginStart="16dp"
       android:layout_marginEnd="16dp"
       android:layout_marginTop="24dp"
-      android:id="@+id/et_name_nft"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       app:boxCornerRadiusBottomEnd="20dp"
@@ -23,6 +22,7 @@
       android:hint="Name">
 
     <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/et_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         />
@@ -33,7 +33,6 @@
       android:layout_marginStart="16dp"
       android:layout_marginEnd="16dp"
       android:layout_marginTop="24dp"
-      android:id="@+id/et_date"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       app:boxCornerRadiusBottomEnd="20dp"
@@ -43,6 +42,7 @@
       android:hint="Date">
 
     <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/et_date"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         />
@@ -53,7 +53,6 @@
       android:layout_marginStart="16dp"
       android:layout_marginEnd="16dp"
       android:layout_marginTop="24dp"
-      android:id="@+id/et_time_hour"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       app:boxCornerRadiusBottomEnd="20dp"
@@ -63,6 +62,7 @@
       android:hint="Time (Hour)">
 
     <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/et_time_hour"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         />
@@ -73,7 +73,6 @@
       android:layout_marginStart="16dp"
       android:layout_marginEnd="16dp"
       android:layout_marginTop="24dp"
-      android:id="@+id/et_time_minute"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       app:boxCornerRadiusBottomEnd="20dp"
@@ -83,6 +82,7 @@
       android:hint="Time (Min)">
 
     <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/et_time_minute"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         />
