@@ -12,7 +12,7 @@ interface NftDao {
     fun insertNft(nft: Nft):Long
 
     @Update
-    fun updateNft(nft: Nft):Int
+    fun updateNft(nft: Nft?):Int
 
     @Delete
     fun deleteNft(nft: Nft):Int

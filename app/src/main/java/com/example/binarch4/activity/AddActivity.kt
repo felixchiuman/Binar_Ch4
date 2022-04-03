@@ -23,6 +23,7 @@ class AddActivity : AppCompatActivity() {
         mDb = NftDatabase.getInstance(this)
 
         btn_save.setOnClickListener {
+
             val objectStudent = Nft(
                 null,
                 et_name_nft.editText?.text.toString(),
@@ -34,7 +35,7 @@ class AddActivity : AppCompatActivity() {
             GlobalScope.async {
                 val result = mDb?.nftDao()?.insertNft(objectStudent)
                 runOnUiThread {
-                    if(result != 0.toLong() ){
+                    if(result != 0.toLong()){
                         //sukses
                         Toast.makeText(this@AddActivity,"Sukses menambahkan ${objectStudent.name}",
                             Toast.LENGTH_LONG).show()

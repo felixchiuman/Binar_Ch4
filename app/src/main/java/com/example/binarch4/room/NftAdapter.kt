@@ -2,10 +2,13 @@ package com.example.binarch4.room
 
 import android.app.AlertDialog
 import android.content.Intent
+import android.content.pm.PackageManager
+import android.provider.AlarmClock
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.binarch4.R
 import com.example.binarch4.activity.EditActivity
@@ -38,12 +41,12 @@ class NftAdapter(val listNft : List<Nft>) : RecyclerView.Adapter<NftAdapter.View
             val intentKeEditActivity = Intent(it.context,
                 EditActivity::class.java)
 
-            intentKeEditActivity.putExtra("student",listNft[position])
+            intentKeEditActivity.putExtra("nft",listNft[position])
             it.context.startActivity(intentKeEditActivity)
         }
 
         holder.itemView.ivDelete.setOnClickListener {
-            AlertDialog.Builder(it.context).setPositiveButton("Ya") { p0, p1 ->
+            AlertDialog.Builder(it.context).setPositiveButton("Yes") { p0, p1 ->
                 val mDb = NftDatabase.getInstance(holder.itemView.context)
 
                 GlobalScope.async {
@@ -51,21 +54,21 @@ class NftAdapter(val listNft : List<Nft>) : RecyclerView.Adapter<NftAdapter.View
 
                     (holder.itemView.context as MainActivity).runOnUiThread {
                         if (result!=0){
-                            Toast.makeText(it.context,"Data ${listNft[position].name} berhasil dihapus",
+                            Toast.makeText(it.context,"Data ${listNft[position].name} deleted",
                                 Toast.LENGTH_LONG).show()
                         }else{
-                            Toast.makeText(it.context,"Data ${listNft[position].name} Gagal dihapus",
+                            Toast.makeText(it.context,"Data ${listNft[position].name} is not deleted",
                                 Toast.LENGTH_LONG).show()
                         }
                     }
 
                     (holder.itemView.context as MainActivity).fetchData()
                 }
-            }.setNegativeButton("Tidak"
+            }.setNegativeButton("No"
             ) { p0, p1 ->
                 p0.dismiss()
             }
-                .setMessage("Apakah Anda Yakin ingin menghapus data ${listNft[position].name}").setTitle("Konfirmasi Hapus").create().show()
+                .setMessage("Do you want delete data ${listNft[position].name}").setTitle("Delete Confirmation").create().show()
         }
     }
 }
