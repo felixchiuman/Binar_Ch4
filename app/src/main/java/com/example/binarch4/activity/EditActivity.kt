@@ -51,9 +51,9 @@ class EditActivity : AppCompatActivity() {
 
                     runOnUiThread {
                         if(result!=0){
-                            Toast.makeText(this@EditActivity,"Sukses mengubah ${objectNft?.name}", Toast.LENGTH_LONG).show()
+                            Toast.makeText(this@EditActivity,"change data ${objectNft?.name} success", Toast.LENGTH_LONG).show()
                         }else{
-                            Toast.makeText(this@EditActivity,"Gagal mengubah ${objectNft?.name}", Toast.LENGTH_LONG).show()
+                            Toast.makeText(this@EditActivity,"change data ${objectNft?.name} failed", Toast.LENGTH_LONG).show()
                         }
 
                         finish()
