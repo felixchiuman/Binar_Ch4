@@ -9,12 +9,16 @@
         <entry key="..\:/Andorid Studio Project/BinarCh4/app/src/main/res/drawable/indicator_active_background.xml" value="0.1755" />
         <entry key="..\:/Andorid Studio Project/BinarCh4/app/src/main/res/drawable/indicator_inactive_background.xml" value="0.1755" />
         <entry key="..\:/Andorid Studio Project/BinarCh4/app/src/main/res/drawable/round_outline.xml" value="0.1755" />
+        <entry key="..\:/Andorid Studio Project/BinarCh4/app/src/main/res/layout/activity_add.xml" value="0.2" />
+        <entry key="..\:/Andorid Studio Project/BinarCh4/app/src/main/res/layout/activity_edit.xml" value="0.2" />
         <entry key="..\:/Andorid Studio Project/BinarCh4/app/src/main/res/layout/activity_login.xml" value="0.22735507246376813" />
+        <entry key="..\:/Andorid Studio Project/BinarCh4/app/src/main/res/layout/activity_main.xml" value="0.264" />
         <entry key="..\:/Andorid Studio Project/BinarCh4/app/src/main/res/layout/activity_on_boarding.xml" value="0.11197916666666667" />
         <entry key="..\:/Andorid Studio Project/BinarCh4/app/src/main/res/layout/activity_on_boarding1.xml" value="0.22735507246376813" />
         <entry key="..\:/Andorid Studio Project/BinarCh4/app/src/main/res/layout/activity_register.xml" value="0.22735507246376813" />
         <entry key="..\:/Andorid Studio Project/BinarCh4/app/src/main/res/layout/activity_register_success.xml" value="0.22735507246376813" />
         <entry key="..\:/Andorid Studio Project/BinarCh4/app/src/main/res/layout/activity_splash_screen.xml" value="0.22735507246376813" />
+        <entry key="..\:/Andorid Studio Project/BinarCh4/app/src/main/res/layout/nft_item.xml" value="0.22735507246376813" />
         <entry key="..\:/Andorid Studio Project/BinarCh4/app/src/main/res/layout/on_boarding_item_container.xml" value="0.22735507246376813" />
       </map>
     </option>

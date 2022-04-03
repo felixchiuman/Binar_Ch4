@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardElevation="4dp"
+    app:cardCornerRadius="10dp"
+    app:contentPadding="8dp"
+    app:cardUseCompatPadding="true"
+    android:layout_width="match_parent"
+    android:layout_margin="4dp"
+    android:layout_height="wrap_content"
+    app:strokeColor="@color/pink_me"
+    app:strokeWidth="3dp"
+    android:backgroundTint="@color/blackcurrent_me">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:text="Name :"
+            android:textSize="24sp"
+            android:id="@+id/label_name"
+            android:textColor="@color/white"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            app:layout_constraintStart_toEndOf="@id/label_name"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginStart="8dp"
+            android:text="-"
+            android:textColor="@color/white"
+            android:textSize="24sp"
+            android:id="@+id/tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            app:layout_constraintTop_toBottomOf="@id/label_name"
+            app:layout_constraintStart_toStartOf="parent"
+            android:text="Date :"
+            android:textSize="24sp"
+            android:id="@+id/label_date"
+            android:textColor="@color/white"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            app:layout_constraintStart_toEndOf="@id/label_date"
+            app:layout_constraintTop_toTopOf="@id/label_date"
+            android:layout_marginStart="8dp"
+            android:text="-"
+            android:textColor="@color/white"
+            android:textSize="24sp"
+            android:id="@+id/tv_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            app:layout_constraintTop_toBottomOf="@id/label_date"
+            app:layout_constraintStart_toStartOf="parent"
+            android:text="Hour :"
+            android:textSize="24sp"
+            android:id="@+id/label_hour"
+            android:textColor="@color/white"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            app:layout_constraintStart_toEndOf="@id/label_hour"
+            app:layout_constraintTop_toTopOf="@id/label_hour"
+            android:layout_marginStart="8dp"
+            android:text="-"
+            android:textColor="@color/white"
+            android:textSize="24sp"
+            android:id="@+id/tv_hour"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            app:layout_constraintTop_toBottomOf="@id/label_hour"
+            app:layout_constraintStart_toStartOf="parent"
+            android:text="Minute :"
+            android:textSize="24sp"
+            android:id="@+id/label_min"
+            android:textColor="@color/white"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            app:layout_constraintStart_toEndOf="@id/label_min"
+            app:layout_constraintTop_toTopOf="@id/label_min"
+            android:layout_marginStart="8dp"
+            android:text="-"
+            android:textColor="@color/white"
+            android:textSize="24sp"
+            android:id="@+id/tv_min"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <ImageView
+            android:id="@+id/ivDelete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_baseline_delete_24"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/ivEdit"
+            android:src="@drawable/ic_baseline_edit_24"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>
