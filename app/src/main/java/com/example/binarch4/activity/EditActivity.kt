@@ -1,10 +1,11 @@
 package com.example.binarch4.activity
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
+import android.content.pm.PackageManager
 import android.os.Bundle
 import android.provider.AlarmClock
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.example.binarch4.R
 import com.example.binarch4.room.Nft
 import com.example.binarch4.room.NftDatabase
@@ -13,6 +14,8 @@ import kotlinx.android.synthetic.main.activity_add.btn_save
 import kotlinx.android.synthetic.main.activity_edit.*
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.async
+import java.util.*
+import kotlin.collections.ArrayList
 
 
 class EditActivity : AppCompatActivity() {
@@ -32,12 +35,34 @@ class EditActivity : AppCompatActivity() {
         et_time_minute.setText(objectNft?.minutes)
 
         btn_alarm.setOnClickListener {
-
-            val intent = Intent(AlarmClock.ACTION_SET_ALARM)
-            intent.putExtra(AlarmClock.EXTRA_HOUR, et_time_hour.text.toString().toInt())
-            intent.putExtra(AlarmClock.EXTRA_MINUTES, et_time_minute.text.toString().toInt())
-
-            startActivity(intent)
+            val permissionCheck = checkSelfPermission(android.Manifest.permission.SET_ALARM)
+            
+            if (permissionCheck == PackageManager.PERMISSION_DENIED){
+                Toast.makeText(this, "Permission denied", Toast.LENGTH_SHORT).show()
+            }else{
+                val hour = et_name.text.toString().toInt()
+                val min = et_time_minute.text.toString().toInt()
+                val intent = Intent(AlarmClock.ACTION_SET_ALARM).apply {
+                    putExtra(AlarmClock.EXTRA_MESSAGE, "test")
+                    putExtra(AlarmClock.EXTRA_HOUR, hour)
+                    putExtra(AlarmClock.EXTRA_MINUTES, min)
+                }
+                if (intent.resolveActivity(packageManager) != null) {
+                    startActivity(intent)
+                }
+//
+//                val hour = et_time_hour.text.toString().toInt()
+//                val min = et_time_minute.text.toString().toInt()
+//                val intent = Intent(AlarmClock.ACTION_SET_ALARM)
+//                intent.putExtra(AlarmClock.EXTRA_HOUR, hour)
+//                intent.putExtra(AlarmClock.EXTRA_MINUTES, min)
+//
+//                if (hour <24 && min <60){
+//                    startActivity(intent)
+                else{
+                    Toast.makeText(this, "Alarm Set Error", Toast.LENGTH_SHORT).show()
+                }
+            }
         }
 
         btn_save.setOnClickListener {
@@ -51,7 +76,7 @@ class EditActivity : AppCompatActivity() {
 
                     runOnUiThread {
                         if(result!=0){
-                            Toast.makeText(this@EditActivity,"change data ${objectNft?.name} success", Toast.LENGTH_LONG).show()
+                            Toast.makeText(this@EditActivity,"change changed ${objectNft?.name} successfully", Toast.LENGTH_LONG).show()
                         }else{
                             Toast.makeText(this@EditActivity,"change data ${objectNft?.name} failed", Toast.LENGTH_LONG).show()
                         }
