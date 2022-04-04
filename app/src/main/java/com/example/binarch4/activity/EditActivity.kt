@@ -59,7 +59,7 @@ class EditActivity : AppCompatActivity() {
 //
 //                if (hour <24 && min <60){
 //                    startActivity(intent)
-                else{
+                else if (hour!! >=24 && min!! >= 60){
                     Toast.makeText(this, "Alarm Set Error", Toast.LENGTH_SHORT).show()
                 }
             }
