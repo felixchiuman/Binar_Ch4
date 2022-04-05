@@ -2,13 +2,10 @@ package com.example.binarch4.room
 
 import android.app.AlertDialog
 import android.content.Intent
-import android.content.pm.PackageManager
-import android.provider.AlarmClock
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.binarch4.R
 import com.example.binarch4.activity.EditActivity
@@ -37,7 +34,7 @@ class NftAdapter(val listNft : List<Nft>) : RecyclerView.Adapter<NftAdapter.View
         holder.itemView.tv_hour.text = listNft[position].hour
         holder.itemView.tv_min.text = listNft[position].minutes
 
-        holder.itemView.ivEdit.setOnClickListener {
+        holder.itemView.iv_edit.setOnClickListener {
             val intentKeEditActivity = Intent(it.context,
                 EditActivity::class.java)
 
@@ -45,7 +42,7 @@ class NftAdapter(val listNft : List<Nft>) : RecyclerView.Adapter<NftAdapter.View
             it.context.startActivity(intentKeEditActivity)
         }
 
-        holder.itemView.ivDelete.setOnClickListener {
+        holder.itemView.iv_delete.setOnClickListener {
             AlertDialog.Builder(it.context).setPositiveButton("Yes") { p0, p1 ->
                 val mDb = NftDatabase.getInstance(holder.itemView.context)
 
