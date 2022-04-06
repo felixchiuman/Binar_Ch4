@@ -29,12 +29,12 @@ class LoginActivity : AppCompatActivity() {
             else{
                 val mainActivity = Intent(this, MainActivity::class.java)
                 startActivity(mainActivity)
+                finish()
             }
         }
         binding.tvSignUp.setOnClickListener {
             val registerActivity = Intent(this, RegisterActivity::class.java)
             startActivity(registerActivity)
-            finish()
         }
     }
 

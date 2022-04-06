@@ -36,10 +36,10 @@ class EditActivity : AppCompatActivity() {
 
         btn_alarm.setOnClickListener {
             val permissionCheck = checkSelfPermission(android.Manifest.permission.SET_ALARM)
-            
-            if (permissionCheck == PackageManager.PERMISSION_DENIED){
+
+            if (permissionCheck == PackageManager.PERMISSION_DENIED) {
                 Toast.makeText(this, "Permission denied", Toast.LENGTH_SHORT).show()
-            }else{
+            } else {
                 val hour = objectNft?.hour?.toInt()
                 val min = objectNft?.minutes?.toInt()
                 val intent = Intent(AlarmClock.ACTION_SET_ALARM).apply {
@@ -47,8 +47,12 @@ class EditActivity : AppCompatActivity() {
                     putExtra(AlarmClock.EXTRA_HOUR, hour)
                     putExtra(AlarmClock.EXTRA_MINUTES, min)
                 }
-                if (intent.resolveActivity(packageManager) != null && hour!! < 24 && min!! < 60) {
+                if (intent.resolveActivity(packageManager) != null) {
+                    if (hour!! < 24 && min!! < 60){
                     startActivity(intent)
+                    }else{
+                        Toast.makeText(this, "Alarm Set Error", Toast.LENGTH_SHORT).show()
+                    }
                 }
 //
 //                val hour = et_time_hour.text.toString().toInt()
@@ -59,9 +63,6 @@ class EditActivity : AppCompatActivity() {
 //
 //                if (hour <24 && min <60){
 //                    startActivity(intent)
-                else if (hour!! >=24 && min!! >= 60){
-                    Toast.makeText(this, "Alarm Set Error", Toast.LENGTH_SHORT).show()
-                }
             }
         }
 
@@ -71,19 +72,25 @@ class EditActivity : AppCompatActivity() {
             objectNft?.hour = et_time_hour.text.toString()
             objectNft?.minutes = et_time_minute.text.toString()
 
-                GlobalScope.async {
-                    val result = mDb?.nftDao()?.updateNft(objectNft)
+            GlobalScope.async {
+                val result = mDb?.nftDao()?.updateNft(objectNft)
 
-                    runOnUiThread {
-                        if(result!=0){
-                            Toast.makeText(this@EditActivity,"change changed ${objectNft?.name} successfully", Toast.LENGTH_LONG).show()
-                        }else{
-                            Toast.makeText(this@EditActivity,"change data ${objectNft?.name} failed", Toast.LENGTH_LONG).show()
-                        }
-
-                        finish()
+                runOnUiThread {
+                    if (result != 0) {
+                        Toast.makeText(
+                            this@EditActivity,
+                            "change changed ${objectNft?.name} successfully",
+                            Toast.LENGTH_LONG
+                        ).show()
+                    } else {
+                        Toast.makeText(
+                            this@EditActivity,
+                            "change data ${objectNft?.name} failed",
+                            Toast.LENGTH_LONG
+                        ).show()
                     }
                 }
+            }
         }
     }
 }
