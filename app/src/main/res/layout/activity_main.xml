@@ -9,6 +9,7 @@
     android:background="@color/blackcurrent_me">
 
     <TextView
+        android:id="@+id/tv_main"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -20,11 +21,25 @@
         android:layout_marginTop="16dp"
         android:textStyle="bold"/>
 
+    <TextView
+        android:id="@+id/tv_sign_out"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/tv_main"
+        app:layout_constraintStart_toEndOf="@id/tv_main"
+        app:layout_constraintBottom_toBottomOf="@id/tv_main"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sign Out"
+        android:textSize="16sp"
+        android:textColor="@color/pink_me"
+        android:layout_margin="16dp"
+        android:textStyle="bold"/>
+
     <androidx.recyclerview.widget.RecyclerView
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_main"
         android:id="@+id/recyclerView"
         android:layout_width="0dp"
         android:layout_height="0dp" />

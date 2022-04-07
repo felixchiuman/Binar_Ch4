@@ -40,10 +40,11 @@ class EditActivity : AppCompatActivity() {
             if (permissionCheck == PackageManager.PERMISSION_DENIED) {
                 Toast.makeText(this, "Permission denied", Toast.LENGTH_SHORT).show()
             } else {
+                val name = objectNft?.name
                 val hour = objectNft?.hour?.toInt()
                 val min = objectNft?.minutes?.toInt()
                 val intent = Intent(AlarmClock.ACTION_SET_ALARM).apply {
-                    putExtra(AlarmClock.EXTRA_MESSAGE, "test")
+                    putExtra(AlarmClock.EXTRA_MESSAGE, name)
                     putExtra(AlarmClock.EXTRA_HOUR, hour)
                     putExtra(AlarmClock.EXTRA_MINUTES, min)
                 }

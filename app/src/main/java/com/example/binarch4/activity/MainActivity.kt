@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.binarch4.R
+import com.example.binarch4.databinding.ActivityLoginBinding
 import com.example.binarch4.room.NftAdapter
 import com.example.binarch4.room.NftDatabase
 import kotlinx.android.synthetic.main.activity_main.*
@@ -24,6 +25,11 @@ class MainActivity : AppCompatActivity() {
         recyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL,false)
         fetchData()
 
+        tv_sign_out.setOnClickListener {
+            val activityLogin = Intent(this, LoginActivity::class.java)
+            startActivity(activityLogin)
+            finish()
+        }
         fabAdd.setOnClickListener {
             val keActivityAdd = Intent(this, AddActivity::class.java)
             startActivity(keActivityAdd)
