@@ -7,22 +7,29 @@ import androidx.room.RoomDatabase
 
 @Database(entities = [Nft::class],version = 1)
 abstract class NftDatabase: RoomDatabase() {
-    abstract fun nftDao(): NftDao
+    abstract fun getNftDao(): NftDao
 
     companion object{
-        private var INSTANCE: NftDatabase? = null
+        @Volatile
+        private var instance: NftDatabase? = null
+        private val LOCK = Any()
 
-        fun getInstance(context: Context): NftDatabase? {
-            if(INSTANCE == null){
-                synchronized(NftDatabase::class){
-                    INSTANCE = Room.databaseBuilder(context.applicationContext,NftDatabase::class.java,"Nft.db").build()
-                }
-            }
-            return INSTANCE
+        operator fun invoke(context: Context) = instance ?: synchronized(LOCK){
+            instance ?: getInstance(context)//.also{ instance = it} -> error
         }
 
-        fun destroyInstance(){
-            INSTANCE = null
+        fun getInstance(context: Context){
+            Room.databaseBuilder(context.applicationContext,
+            NftDatabase::class.java,"Nft.db").build()
+//            if(INSTANCE == null){
+//                synchronized(NftDatabase::class){
+//                    INSTANCE = Room.databaseBuilder(context.applicationContext,NftDatabase::class.java,"Nft.db").build()
+//                }
+//            }
         }
+
+//        fun destroyInstance(){
+//            INSTANCE = null
+//        }
     }
 }
